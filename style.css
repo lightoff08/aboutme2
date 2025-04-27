@@ -330,125 +330,146 @@ body.scrolled .works-section {
     font-size: 0.8rem;
 }
 
-/* style.css */
-/* 原有变量和全局样式保持不变 */
+/* Mobile Styles (<= 768px) */
+@media (max-width: 768px) {
+    body { min-height: 150vh; }
 
-/* 新增移动端适配 */
-@media (max-width: 768px) and (orientation: portrait) {
-    :root {
-        --neon-purple: #bc13fe;
-        --hologram-cyan: #e90ff1;
-    }
-
-    /* 基础布局重置 */
-    body {
-        min-height: 300vh;
-        overflow-x: hidden;
-    }
-
-    /* 主卡片系统重构 */
+    /* 大卡片完整顯示 */
     .monarch-card {
-        position: fixed !important;
-        width: 90vw !important;
-        height: 85vh !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        margin: 0;
-        z-index: 1000;
+        width: 95%;
+        max-width: 360px;
+        height: 80vh;
+        max-height: 600px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotateZ(0deg);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .card-face {
-        padding: 1.5rem !important;
-        border-width: 1px;
+    .card-face { padding: 1.5rem; }
+
+    .big-card-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        height: 100%;
+        overflow-y: auto;
     }
 
-    /* 头部布局 */
     .header-section {
         flex-direction: column;
-        gap: 1rem !important;
-        margin-bottom: 1rem;
+        gap: 0.5rem;
+        margin-bottom: 0;
+        width: 100%;
     }
 
-    .avatar-pulse {
-        width: 25vw !important;
-        height: 25vw !important;
-        min-width: 100px;
-        min-height: 100px;
-    }
+    .avatar-pulse { width: 120px; height: 120px; }
 
-    .title-void {
-        font-size: 2rem !important;
-        line-height: 1.2;
-        text-align: center;
-    }
+    .title-void { font-size: 2.5rem; }
 
-    /* 链接区块 */
+    /* 縮小連結區 */
     .links {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: -30px auto 10px !important;
-        padding: 12px !important;
-        width: 90% !important;
-        gap: 20px;
+        order: 1;
+        margin: 0 auto 1rem;
+        padding: 5px 10px;
+        gap: 10px;
+        flex-shrink: 0;
     }
+    .links img { width: 20px; height: 20px; }
+    .id-text { font-size: 0.65em; }
 
-    /* 诗文容器 */
-    .poem-container {
-        font-size: 1rem !important;
-        padding: 0.8rem 0 !important;
-        line-height: 1.6;
-    }
-
-    /* 引文位置 */
+    /* 引言移動 */
     .kafka-quote {
-        position: static !important;
-        font-size: 1.1rem !important;
+        order: 2;
+        position: static;
+        font-size: 1.2rem;
         text-align: center;
+        margin-top: 1rem;
+        padding: 0 1rem;
+        border: none;
+        line-height: 1.5;
+        width: 100%;
+    }
+
+    /* 詩句區 */
+    .poem-container {
+        order: 3;
+        font-size: 1.1rem;
         padding: 1rem 0;
         border: none;
-        border-top: 1px solid var(--neon-purple);
-        margin-top: 1rem;
+        width: 100%;
+        line-height: 1.6;
+        flex-shrink: 0;
     }
 
-    /* 滚动提示 */
+    /* 滑動提示 */
     .scroll-prompt {
-        left: 50% !important;
-        bottom: 20px;
-        top: auto !important;
-        transform: translateX(-50%);
+        order: 4;
+        position: static;
+        margin-top: auto;
+        margin-bottom: 0.5rem;
+        justify-content: center;
+        width: 100%;
+        flex-shrink: 0;
     }
+    .scroll-text { font-size: 1rem; }
 
-    /* 作品区适配 */
-    .works-section {
-        top: calc(100vh + 2rem);
-        padding: 2rem;
-    }
-
-    .work-card {
-        max-width: 90vw !important;
-        margin: 0 auto 1.5rem;
-        padding: 1rem;
-    }
-
-    /* 滚动后卡片状态 */
+    /* 滾動後小卡片 */
     body.scrolled .monarch-card {
-        width: 60vw !important;
-        height: 70vh !important;
-        bottom: 5% !important;
-        right: 5% !important;
-        transform: rotateZ(-5deg) !important;
+        width: 180px;
+        height: 240px;
+        bottom: 3%;
+        right: 4%;
+        transform: rotateZ(0deg);
     }
-}
+    body.scrolled .big-card-content { display: none; }
+    body.scrolled .small-card-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 1rem;
+        gap: 0.5rem;
+        text-align: center;
+        overflow-y: auto;
+    }
 
-/* 触控优化 */
-@media (hover: none) {
+    .pr { width: 80px; height: 80px; margin-bottom: 0.5rem; }
+    .title-void2 { font-size: 1.2rem; }
+    .small-kafka-quote { font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.3; }
+
+    /* 手機版作品區 */
+    .works-section {
+        position: static;
+        padding: 2rem 1rem;
+        width: auto;
+        margin-top: 2rem;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1;
+    }
+    body.scrolled .works-section { opacity: 1; }
     .work-card {
-        transition: none !important;
+        max-width: 90%;
+        margin-bottom: 1rem;
+        transform: none;
+        box-shadow: none;
+        border-width: 1px;
     }
+    .work-card:hover { box-shadow: 0 0 15px var(--hologram-cyan); }
 
-    .work-card:active {
-        transform: scale(0.98) !important;
+    /* 版權 */
+    .copyright {
+        position: static;
+        margin-top: 2rem;
+        padding-bottom: 1rem;
+        font-size: 0.7rem;
+        text-align: center;
+        width: 100%;
     }
 }
