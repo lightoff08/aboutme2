@@ -70,5 +70,3 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "power4.out"
     });
 });
-
-
