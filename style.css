@@ -323,52 +323,96 @@ body.scrolled .works-section {
     font-size: 0.8rem;
 }
 
+/* style.css 新增移动端样式 */
 @media (max-width: 768px) {
   .monarch-card {
     width: 90% !important;
-    height: 60vh !important;
+    height: 80vh !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .header-section {
+    flex-direction: column;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
   }
 
   .avatar-pulse {
-    width: 120px !important;
-    height: 120px !important;
+    width: 150px !important;
+    height: 150px !important;
   }
 
   .title-void {
-    font-size: 2rem !important;
-  }
-
-  .poem-container {
-    font-size: 1rem;
-    padding: 1rem 0;
-  }
-
-  .links {
-    margin: -40px 20px 10px !important;
-    padding: 10px 20px;
-    gap: 15px;
+    font-size: 2.5rem !important;
+    text-align: center;
   }
 
   .kafka-quote {
-    font-size: 1.2rem;
-    line-height: 1.5;
+    font-size: 1.2rem !important;
+    text-align: center !important;
+    border-right: none !important;
+    padding: 1rem 0 !important;
+    margin: 1rem 0 !important;
+    border-top: 1px solid var(--neon-purple);
+    border-bottom: 1px solid var(--neon-purple);
   }
 
-  .work-card {
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+  .poem-container {
+    font-size: 1.1rem;
+    padding: 1rem 0 !important;
+    margin: 0 !important;
+  }
+
+  .links {
+    margin: 0 auto !important;
+    padding: 10px 20px !important;
+    gap: 20px !important;
+    width: 90% !important;
+    transform: scale(0.9);
   }
 
   .scroll-prompt {
-    left: 80%;
-    transform: scale(0.8);
+    left: 50% !important;
+    transform: translateX(-50%);
+    bottom: 20px;
+    top: auto !important;
   }
 
+  /* 滚动后样式 */
   body.scrolled .monarch-card {
-    width: 200px !important;
-    height: 300px !important;
-    bottom: 3%;
-    right: 3%;
+    width: 160px !important;
+    height: 200px !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    transform: rotateZ(-5deg) !important;
+  }
+
+  .small-card-content {
+    padding: 1rem !important;
+  }
+
+  .title-void2 {
+    font-size: 1.5rem !important;
+    margin-top: 0.5rem !important;
+  }
+
+  .pr {
+    width: 80px !important;
+    height: 80px !important;
+    margin-top: 0 !important;
+  }
+
+  /* 作品区块调整 */
+  .works-section {
+    top: calc(100vh + 2rem);
+    padding: 2rem;
+  }
+
+  .work-card {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
