@@ -65,36 +65,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
-// 增强版触控处理
-let touchY = 0;
-const SCROLL_THRESHOLD = 30;
-
-document.addEventListener('touchstart', e => {
-    touchY = e.touches[0].clientY;
-});
-
-document.addEventListener('touchmove', e => {
-    const deltaY = e.touches[0].clientY - touchY;
-    if (Math.abs(deltaY) > SCROLL_THRESHOLD) {
-        e.preventDefault();
-    }
-}, { passive: false });
-
-// 滚动边界检测
-window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY > 30;
-    document.body.classList.toggle('scrolled', scrolled);
-
-    // 移动端弹性边界
-    if (window.innerWidth <= 768 && window.scrollY < 0) {
-        window.scrollTo(0, 0);
-    }
-});
-
-// 视口重置
-window.addEventListener('resize', () => {
-    if (window.innerWidth <= 768) {
-        document.querySelector('.monarch-card').style.transform = '';
-    }
-});
