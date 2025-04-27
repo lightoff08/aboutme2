@@ -65,16 +65,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// 新增觸控滑動偵測
-let touchStartY = 0;
+
+// 增强版触控处理
+let touchY = 0;
+const SCROLL_THRESHOLD = 30;
 
 document.addEventListener('touchstart', e => {
-    touchStartY = e.touches[0].clientY;
+    touchY = e.touches[0].clientY;
 });
 
-document.addEventListener('touchend', e => {
-    const touchEndY = e.changedTouches[0].clientY;
-    if (touchEndY - touchStartY < -50) {
-        window.scrollBy(0, 100); // 向下滑動
+document.addEventListener('touchmove', e => {
+    const deltaY = e.touches[0].clientY - touchY;
+    if (Math.abs(deltaY) > SCROLL_THRESHOLD) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+// 滚动边界检测
+window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY > 30;
+    document.body.classList.toggle('scrolled', scrolled);
+
+    // 移动端弹性边界
+    if (window.innerWidth <= 768 && window.scrollY < 0) {
+        window.scrollTo(0, 0);
+    }
+});
+
+// 视口重置
+window.addEventListener('resize', () => {
+    if (window.innerWidth <= 768) {
+        document.querySelector('.monarch-card').style.transform = '';
     }
 });
