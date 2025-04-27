@@ -98,3 +98,38 @@ const animate = () => {
   }
   requestAnimationFrame(animate);
 }
+
+// script.js 新增触摸检测
+let touchStartY = 0;
+const touchThreshold = 30;
+
+document.addEventListener('touchstart', e => {
+  touchStartY = e.touches[0].clientY;
+});
+
+document.addEventListener('touchend', e => {
+  const touchEndY = e.changedTouches[0].clientY;
+  const deltaY = touchEndY - touchStartY;
+
+  if (Math.abs(deltaY) > touchThreshold) {
+    document.body.classList.toggle('scrolled', deltaY < 0);
+    window.scrollTo(0, deltaY < 0 ? window.innerHeight : 0);
+  }
+});
+
+// 优化粒子性能
+class VoidParticleSystem {
+  constructor() {
+    // ...原有代码...
+    this.animationFrame = window.innerWidth < 768 ? 30 : 60;
+  }
+
+  animate() {
+    const now = Date.now();
+    if (now - this.lastFrame > 1000/this.animationFrame) {
+      // 绘制逻辑...
+      this.lastFrame = now;
+    }
+    requestAnimationFrame(() => this.animate());
+  }
+}
