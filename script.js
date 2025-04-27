@@ -133,3 +133,33 @@ class VoidParticleSystem {
     requestAnimationFrame(() => this.animate());
   }
 }
+
+// script.js 新增手机版专用逻辑
+if (window.innerWidth <= 768px) {
+  // 自动调整初始缩放
+  const viewportMeta = document.querySelector('meta[name="viewport"]');
+  viewportMeta.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+
+  // 优化触摸滑动检测
+  let touchStartY = 0;
+  const scrollHandler = (e) => {
+    const currentY = e.changedTouches[0].clientY;
+    const deltaY = currentY - touchStartY;
+    
+    if (Math.abs(deltaY) > 30) {
+      document.body.classList.toggle("scrolled", deltaY < 0);
+      window.scrollTo({ top: deltaY < 0 ? window.innerHeight : 0 });
+    }
+  };
+
+  document.addEventListener("touchstart", (e) => {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  document.addEventListener("touchend", scrollHandler, { passive: true });
+
+  // 防止卡片点击穿透
+  document.querySelector(".monarch-card").addEventListener("touchstart", (e) => {
+    e.stopPropagation();
+  });
+}
