@@ -72,14 +72,22 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// script.js 修改部分 - 增加手機版滾動檢測
-window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY > 50;
-    document.body.classList.toggle('scrolled', scrolled);
-    
-    // 手機版專用滾動行為
-    if (window.innerWidth < 768) {
-        const worksSection = document.querySelector('.works-section');
-        worksSection.style.top = `${window.innerHeight}px`;
-    }
+// 在GSAP動畫部分新增手機判定
+document.addEventListener('DOMContentLoaded', () => {
+  new VoidParticleSystem();
+
+  const isMobile = window.innerWidth < 768;
+  
+  // 手機版粒子數量調整
+  if(isMobile) {
+    const particles = document.querySelectorAll('#voidParticles');
+    particles.forEach(p => p.style.zIndex = -2);
+  }
+
+  gsap.from('.monarch-card', {
+    duration: isMobile ? 1.2 : 1.5,
+    scale: isMobile ? 0.95 : 0.8,
+    opacity: 0,
+    ease: "power4.out"
+  });
 });
