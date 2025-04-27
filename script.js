@@ -72,22 +72,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// 在GSAP動畫部分新增手機判定
-document.addEventListener('DOMContentLoaded', () => {
-  new VoidParticleSystem();
-
-  const isMobile = window.innerWidth < 768;
-  
-  // 手機版粒子數量調整
-  if(isMobile) {
-    const particles = document.querySelectorAll('#voidParticles');
-    particles.forEach(p => p.style.zIndex = -2);
-  }
-
-  gsap.from('.monarch-card', {
-    duration: isMobile ? 1.2 : 1.5,
-    scale: isMobile ? 0.95 : 0.8,
-    opacity: 0,
-    ease: "power4.out"
-  });
-});
