@@ -70,3 +70,16 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "power4.out"
     });
 });
+
+
+// script.js 修改部分 - 增加手機版滾動檢測
+window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY > 50;
+    document.body.classList.toggle('scrolled', scrolled);
+    
+    // 手機版專用滾動行為
+    if (window.innerWidth < 768) {
+        const worksSection = document.querySelector('.works-section');
+        worksSection.style.top = `${window.innerHeight}px`;
+    }
+});
