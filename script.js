@@ -70,3 +70,31 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "power4.out"
     });
 });
+
+// 新增触摸事件处理
+let touchStartY = 0;
+const touchThreshold = 30;
+
+document.addEventListener('touchstart', e => {
+  touchStartY = e.touches[0].clientY;
+});
+
+document.addEventListener('touchend', e => {
+  const touchEndY = e.changedTouches[0].clientY;
+  const deltaY = touchEndY - touchStartY;
+
+  if (Math.abs(deltaY) > touchThreshold) {
+    document.body.classList.toggle('scrolled', deltaY < 0);
+  }
+});
+
+// 优化粒子动画帧率
+let lastRender = 0;
+const animate = () => {
+  const now = Date.now();
+  if (now - lastRender >= (window.innerWidth < 768 ? 1000/30 : 1000/60)) {
+    // 绘制逻辑...
+    lastRender = now;
+  }
+  requestAnimationFrame(animate);
+}
