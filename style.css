@@ -323,88 +323,88 @@ body.scrolled .works-section {
     font-size: 0.8rem;
 }
 
-/* Mobile Styles (<= 768px) */
+/* style.css 修改部分 */
 @media (max-width: 768px) {
-    body { min-height: auto; }
-
-    /* 大卡片完整顯示 並允許頁面滾動 */
     .monarch-card {
-        position: relative;
-        width: 95%;
+        width: 90% !important;
         max-width: 360px;
-        height: auto;
-        max-height: 80vh;
-        margin: 2rem auto;  /* 置中並與上下保持間距 */
-        transform: none;
-        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        height: auto !important;
+        min-height: 85vh;
+        margin: 2rem auto;
+        transform: none !important;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
     }
 
-    .card-face { padding: 1.5rem; }
-
-    .big-card-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1rem;
-        /* 移除內部滾動，使用整頁滾動 */
-        overflow: visible;
-    }
-
-    .header-section {
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-bottom: 0;
-        width: 100%;
-    }
-
-    .avatar-pulse { width: 120px; height: 120px; }
-
-    .title-void { font-size: 2.5rem; }
-
-    /* 縮小連結區，避免遮擋標題 */
     .links {
-        order: 1;
-        margin: 0 auto 1rem;
-        padding: 5px 10px;
-        gap: 10px;
-        flex-shrink: 0;
+        order: 3;
+        margin: 1rem auto !important;
+        padding: 10px 20px !important;
+        gap: 15px;
+        transform: scale(0.9);
+        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(248, 98, 241, 0.05);
     }
-    .links img { width: 18px; height: 18px; }
-    .id-text { font-size: 0.6em; }
 
-    /* 引言移動 */
     .kafka-quote {
         order: 2;
-        position: static;
-        font-size: 1.2rem;
-        text-align: center;
-        margin-top: 1rem;
+        font-size: 1.1rem !important;
+        text-align: center !important;
+        margin: 1rem 0;
         padding: 0 1rem;
-        border: none;
-        line-height: 1.5;
-        width: 100%;
+        line-height: 1.4;
     }
 
-    /* 詩句區 */
     .poem-container {
-        order: 3;
-        font-size: 1.1rem;
+        order: 4;
+        font-size: 1rem;
         padding: 1rem 0;
-        border: none;
-        width: 100%;
-        line-height: 1.6;
-        flex-shrink: 0;
+        margin: 0;
     }
 
-    /* 滑動提示 */
     .scroll-prompt {
-        order: 4;
-        position: static;
-        margin-top: 1rem;
-        justify-content: center;
-        width: 100%;
-        flex-shrink: 0;
+        order: 5;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: column;
     }
-    .scroll-text { font-size: 1rem; }
+
+    /* 滑動後的小卡片調整 */
+    body.scrolled .monarch-card {
+        width: 120px !important;
+        height: 160px !important;
+        bottom: 20px;
+        right: 20px;
+        transform: rotateZ(-5deg) !important;
+    }
+
+    body.scrolled .pr {
+        width: 60px !important;
+        height: 60px !important;
+        margin-top: -10px;
+    }
+
+    body.scrolled .title-void2 {
+        font-size: 1.2rem;
+        margin: 5px 0;
+    }
+
+    .works-section {
+        top: 100vh;
+        padding: 2rem;
+        opacity: 0;
+    }
+
+    body.scrolled .works-section {
+        opacity: 1;
+        padding: 2rem 1rem;
+    }
+
+    .work-card {
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+    }
 }
