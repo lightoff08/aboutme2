@@ -51,10 +51,10 @@ body {
     background: linear-gradient(45deg,
             rgba(42, 11, 77, 0.9) 0%,
             rgba(26, 8, 50, 0.95) 100%);
-    border: 2px solid var(--neon-purple);
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 0 50px rgba(188, 19, 254, 0.3);
+    border: 0.2vw solid var(--neon-purple);
+    border-radius: 1.5vw;
+    padding: 2vw;
+    box-shadow: 0 0 5vw rgba(188, 19, 254, 0.3);
 }
 
 /* 大卡片布局 */
@@ -67,78 +67,77 @@ body {
 .header-section {
     display: flex;
     align-items: center;
-    gap: 3rem;
-    margin-bottom: 1.5rem;
+    gap: 3%;
+    margin-bottom: 2%;
 }
 
 .avatar-pulse {
-    width: 200px;
-    height: 200px;
+    width: 25%;
+    height: auto;
+    aspect-ratio: 1/1;
     border-radius: 50%;
-    border: 3px solid var(--neon-purple);
-    box-shadow: 0 0 30px var(--neon-purple);
+    border: 0.3vw solid var(--neon-purple);
+    box-shadow: 0 0 3vw var(--neon-purple);
     object-fit: cover;
     animation: avatar-pulse 2s infinite;
 }
 
 @keyframes avatar-pulse {
     0% {
-        box-shadow: 0 0 10px var(--neon-purple);
+        box-shadow: 0 0 1vw var(--neon-purple);
     }
 
     50% {
-        box-shadow: 0 0 30px var(--neon-purple);
+        box-shadow: 0 0 3vw var(--neon-purple);
     }
 
     100% {
-        box-shadow: 0 0 10px var(--neon-purple);
+        box-shadow: 0 0 1vw var(--neon-purple);
     }
 }
 
 .title-void {
-    font-size: 3.5rem;
-    text-shadow: 0 0 20px var(--neon-purple);
+    font-size: 3.5vw;
+    text-shadow: 0 0 2vw var(--neon-purple);
     margin: 0;
 }
 
 .poem-container {
-    font-size: 1.5rem;
+    font-size: 1.5vw;
     flex-grow: 1;
-    padding: 2rem 0;
-    border-top: 1px solid var(--neon-purple);
-    border-bottom: 1px solid var(--neon-purple);
+    padding: 2% 0;
+    border-top: 0.1vw solid var(--neon-purple);
+    border-bottom: 0.1vw solid var(--neon-purple);
     line-height: 1.8;
 }
 
 .kafka-quote {
     color: var(--kafka-pink);
-    font-size: 2rem;
-    text-shadow: 0 0 10px var(--kafka-pink);
+    font-size: 2vw;
+    text-shadow: 0 0 1vw var(--kafka-pink);
     text-align: right;
-    padding-right: 1rem;
-    border-right: 3px solid var(--neon-purple);
-    color: var(--kafka-pink);
-    text-shadow: 0 0 10px var(--kafka-pink);
+    padding-right: 1%;
+    border-right: 0.3vw solid var(--neon-purple);
     line-height: 2;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2%;
 }
 
 /* 滑動提示 */
 .scroll-prompt {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
+    gap: 0.5%;
+    margin-top: 1%;
     position: relative;
     left: 90%;
 }
 
 .arrow-down {
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: 1vw;
+    height: 1vw;
     border: solid var(--hologram-cyan);
-    border-width: 0 3px 3px 0;
+    border-width: 0 0.3vw 0.3vw 0;
     transform: rotate(45deg);
     animation: arrow-down 1s infinite;
 }
@@ -149,7 +148,7 @@ body {
     }
 
     50% {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: rotate(45deg) translate(0.5vw, 0.5vw);
     }
 
     100% {
@@ -157,17 +156,15 @@ body {
     }
 }
 
-
 .links {
     display: flex;
-    gap: 30px;
-
+    gap: 3%;
     background: rgba(248, 98, 241, 0.1);
-    padding: 15px 40px; 
-    border-radius: 30px;
+    padding: 1.5% 4%; 
+    border-radius: 3vw;
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    margin: -80px 250px 10PX ;
+    border: 0.1vw solid rgba(255, 255, 255, 0.2);
+    margin: -8% 25% 1%;
     width: fit-content;
 }
 
@@ -178,17 +175,17 @@ body {
 }
 
 .links img {
-    width: 30px;
-    height: 30px;
-    padding: 5px;
+    width: 3vw;
+    height: 3vw;
+    padding: 0.5vw;
     background: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
+    border-radius: 0.8vw;
 }
 
 .id-text {
     color: rgba(255, 255, 255, 0.8);
-    font-size: 0.75em;
-    margin-top: 3px;
+    font-size: 0.75vw;
+    margin-top: 0.3vw;
 }
 
 /* 小卡片布局 */
@@ -201,37 +198,37 @@ body {
 }
 
 .pr {
-    width: 150px;
-    height: 150px;
+    width: 45%;
+    height: auto;
+    aspect-ratio: 1/1;
     border-radius: 50%;
-    border: 3px solid var(--neon-purple);
-    box-shadow: 0 0 30px var(--neon-purple);
+    border: 0.3vw solid var(--neon-purple);
+    box-shadow: 0 0 3vw var(--neon-purple);
     object-fit: cover;
     animation: avatar-pulse 2s infinite;
-    margin-top: -50px;
+    margin-top: -15%;
 }
 
 .title-void2 {
-    font-size: 2.5rem;
-    text-shadow: 0 0 20px var(--neon-purple);
-    margin: 5px;
+    font-size: 2.5vw;
+    text-shadow: 0 0 2vw var(--neon-purple);
+    margin: 1.5%;
 }
 
 .small-kafka-quote {
-    margin-top: 1rem;
-    font-size: 1rem;
+    margin-top: 5%;
+    font-size: 1vw;
     color: var(--kafka-pink);
-    text-shadow: 0 0 10px var(--kafka-pink);
+    text-shadow: 0 0 1vw var(--kafka-pink);
     text-align: center;
 }
 
-
 body.scrolled .monarch-card {
-    width: 300px;
-    height: 400px;
+    width: 25vw;
+    height: 40vh;
     top: auto;
     bottom: 5%;
-    right: 5%;
+    right: -5%;
     left: auto;
     transform: rotateZ(-5deg);
 }
@@ -245,16 +242,16 @@ body.scrolled .small-card-content {
 }
 
 body.scrolled .avatar-pulse {
-    width: 120px;
-    height: 120px;
+    width: 45%;
+    height: auto;
 }
 
 /* 作品区块 */
 .works-section {
     position: absolute;
-    top: calc(100vh + 5rem);
-    padding: 5rem;
-    width: 100%;
+    top: calc(100vh + 5vh);
+    padding: 5%;
+    width: 90%;
     opacity: 0;
     transition: opacity 0.5s 0.3s;
     z-index: 999;
@@ -267,11 +264,11 @@ body.scrolled .works-section {
 .work-card {
     position: relative;
     background: rgba(26, 8, 50, 0.9);
-    border: 2px solid;
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    max-width: 600px;
+    border: 0.2vw solid;
+    border-radius: 1vw;
+    padding: 1.5%;
+    margin-bottom: 2%;
+    max-width: 50%;
     cursor: pointer;
     transition: all 0.3s;
 }
@@ -285,7 +282,7 @@ body.scrolled .works-section {
 
 .work-card:nth-child(1) h3 {
     color: var(--kafka-pink);
-    text-shadow: 0 0 15px var(--kafka-pink);
+    text-shadow: 0 0 1.5vw var(--kafka-pink);
 }
 
 .work-card:nth-child(2) {
@@ -297,7 +294,7 @@ body.scrolled .works-section {
 
 .work-card:nth-child(2) h3 {
     color: var(--sova-blue);
-    text-shadow: 0 0 15px var(--sova-blue);
+    text-shadow: 0 0 1.5vw var(--sova-blue);
 }
 
 .hologram-bar {
@@ -305,21 +302,99 @@ body.scrolled .works-section {
     left: 0;
     top: 0;
     height: 100%;
-    width: 3px;
+    width: 0.3vw;
     background: var(--hologram-cyan);
-    box-shadow: 0 0 10px var(--hologram-cyan);
+    box-shadow: 0 0 1vw var(--hologram-cyan);
 }
 
 .work-card:hover {
-    transform: translateX(20px);
-    box-shadow: 0 0 30px var(--hologram-cyan);
+    transform: translateX(2%);
+    box-shadow: 0 0 3vw var(--hologram-cyan);
 }
 
 .copyright {
     position: fixed;
-    bottom: 1rem;
-    left: 1rem;
+    bottom: 1vh;
+    left: 1vw;
     color: rgba(255, 255, 255, 0.7);
-    font-size: 0.8rem;
+    font-size: 0.8vw;
 }
 
+/* 媒體查詢 - 在小螢幕裝置上調整大小 */
+@media (max-width: 768px) {
+    .title-void {
+        font-size: 6vw;
+    }
+    
+    .poem-container {
+        font-size: 3vw;
+    }
+    
+    .kafka-quote {
+        font-size: 4vw;
+    }
+    
+    .links {
+        margin: -5% 5% 1%;
+        padding: 2% 5%;
+    }
+    
+    .links img {
+        width: 6vw;
+        height: 6vw;
+    }
+    
+    .id-text {
+        font-size: 1.5vw;
+    }
+    
+    body.scrolled .monarch-card {
+        width: 40vw;
+        right: -10%;
+    }
+    
+    .title-void2 {
+        font-size: 4vw;
+    }
+    
+    .small-kafka-quote {
+        font-size: 2vw;
+    }
+    
+    .work-card {
+        max-width: 80%;
+    }
+    
+    .copyright {
+        font-size: 2vw;
+    }
+}
+
+/* 非常小螢幕的調整 */
+@media (max-width: 480px) {
+    .header-section {
+        flex-direction: column;
+        gap: 1vh;
+    }
+    
+    .avatar-pulse {
+        width: 40%;
+    }
+    
+    .title-void {
+        font-size: 8vw;
+    }
+    
+    .poem-container {
+        font-size: 4vw;
+    }
+    
+    body.scrolled .monarch-card {
+        width: 50vw;
+        height: 30vh;
+    }
+    
+    .work-card {
+        max-width: 90%;
+    }
+}
