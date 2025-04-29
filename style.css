@@ -165,7 +165,7 @@ body {
     border-radius: 30px;
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    margin: -80px auto 10px;
+    margin: -90px 40px 10px;
     width: fit-content;
     position: relative;
     left: 20%;
@@ -232,7 +232,7 @@ body.scrolled .monarch-card {
     height: 400px;
     top: auto;
     bottom: 5%;
-    right: 5%;
+    right: -20%;
     left: auto;
     transform: rotateZ(-5deg);
 }
