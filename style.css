@@ -232,7 +232,7 @@ body.scrolled .monarch-card {
     height: 400px;
     top: auto;
     bottom: 5%;
-    right: -20%;
+    right: 5%;
     left: auto;
     transform: rotateZ(-5deg);
 }
